@@ -128,9 +128,8 @@ task :check_version do
 end
 
 desc "Run the specs under spec/models"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_opts = ['--options', "spec/spec.opts"]
-  t.spec_files = FileList['spec/*_spec.rb']
+task :spec do
+  sh "bacon spec/timeoutx_spec.rb"
 end
 
 desc "Default task is to run specs"
