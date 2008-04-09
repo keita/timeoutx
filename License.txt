@@ -1,4 +1,4 @@
-Ruby is copyrighted free software by Yukihiro Matsumoto <matz@netlab.jp>.
+TimeoutX is copyrighted free software by Keita Yamaguchi <keita.yamaguchi@gmail.com>.
 You can redistribute it and/or modify it under either the terms of the GPL
 (see the file GPL), or the conditions below:
 
