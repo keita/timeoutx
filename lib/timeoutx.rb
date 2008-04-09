@@ -66,7 +66,7 @@ class TimeoutX
   # Replaces Timeout.timeout into TimeoutX.timeout.
   def self.replace_timeout
     require "timeout"
-    def Timeout.timeout(sec, exception=Timeout::Error)
+    def Timeout.timeout(sec, exception=Timeout::Error) #:nodoc:
       TimeoutX.timeout(sec, exception)
     end
   end
