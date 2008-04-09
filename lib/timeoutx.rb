@@ -74,5 +74,3 @@ class TimeoutX
   # Raised by TimeoutX#timeout when the block times out.
   class Error < Interrupt; end
 end
-
-require 'timeoutx/version'
