@@ -1,0 +1,9 @@
+--- 
+:email: keita.yamaguchi@gmail.com
+:has_rdoc: true
+:homepage: http://rubyforge.org/projects/timeoutx/
+:name: TimeoutX
+:rubyforge_project: timeoutx
+:version: 0.2.1
+:author: Keita Yamaguchi
+:summary: TimeoutX provides a lightweight timeout function.
