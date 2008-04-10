@@ -6,4 +6,4 @@ Rakefile
 examples/benchmark.rb
 lib/timeoutx.rb
 spec/timeoutx_spec.rb
-
+setup.rb
