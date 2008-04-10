@@ -4,6 +4,6 @@
 :homepage: http://rubyforge.org/projects/timeoutx/
 :name: timeoutx
 :rubyforge_project: timeoutx
-:version: 0.2.1
+:version: 0.3.0
 :author: Keita Yamaguchi
 :summary: TimeoutX provides a lightweight timeout function.
