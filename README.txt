@@ -1,21 +1,19 @@
 = TimeoutX
 
-  Copyright (c) 2002-2008 Keita Yamaguchi
-  Mail: keita.yamaguchi@gmail.com
+Author::    Keita Yamaguchi(山口 慶太) <keita.yamaguchi@gmail.com>
+Copyright:: © Keita Yamaguchi, 2007ー2008. All rights reserved.
+License::   Ruby License
 
 TimeoutX provides lightweight timeout function. TimeoutX.timeout is about 10 times faster than standard Timeout.timeout.
 
-See http://timeoutx.rubyforge.org.
-
 == Usage
 
-  require "timeoutx"
-  
-  TimeoutX.timeout(1){ ... }
-
+See {the documentation}[http://github.com/keita/timeoutx/wikis].
 
 == Links
 
-* Project: http://timeoutx.rubyforge.org/
-* GitHub: http://github.com/keita/timeoutx/tree/master
-* Blog(written in Japanese): http://d.hatena.ne.jp/keita_yamaguchi/
+* TimeoutX
+  * {RubyForge}[http://timeoutx.rubyforge.org/]
+  * {GitHub}[http://github.com/keita/timeoutx/tree/master]
+* author's blog(written in Japanese)
+  * {¬¬日常日記}[http://d.hatena.ne.jp/keita_yamaguchi/]
