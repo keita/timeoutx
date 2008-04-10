@@ -27,7 +27,7 @@ CLEAN.include ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']
 require 'rake/rdoctask'
 
 Rake::RDocTask.new do |doc|
-  doc.title = 'TimeoutX documentation'
+  doc.title = "TimeoutX-#{TimeoutX::VERSION} documentation"
   doc.main = "README.txt"
   doc.rdoc_files.include("{README,History,License}.txt", "lib/**/*.rb")
   doc.options << "--line-numbers" << "--inline-source"
