@@ -18,7 +18,7 @@ $config =
 
 require 'rake/clean'
 
-CLEAN.include ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']
+CLEAN.include ['**/.*.sw?', '*.gem', '*.tgz', '.config', '**/.DS_Store']
 
 #
 # RDoc
@@ -36,12 +36,9 @@ end
 require 'rake/contrib/rubyforgepublisher'
 
 desc "Upload API documentation"
-task :publish do
-  Rake::RubyForgePublisher.new("timeoutx", $config["username"])
-#   host = "#{$config["username"]}@rubyforge.org"
-#   remote_dir = "/var/www/gforge-projects/#{PATH}/"
-#   local_dir = 'website'
-#   sh %{rsync -aCv #{local_dir}/ #{host}:#{remote_dir}}
+task :publish => [:rdoc] do
+  pub = Rake::RubyForgePublisher.new("timeoutx", $config["username"])
+  pub.upload
 end
 
 #
@@ -49,17 +46,14 @@ end
 #
 
 desc 'Release new gem version'
-task :deploy => [:check_version, :release] do
-  puts "Tagging release #{CHANGES}"
-end
-
-task :check_version do
-  unless ENV['VERSION']
-    puts 'Must pass a VERSION=x.y.z release version'
-    exit
-  end
-  unless ENV['VERSION'] == TimeoutX::VERSION
-    puts "Please update the release version, currently #{VERS}"
+task :release do
+  filename = "timeoutx-#{TimeoutX::VERSION}"
+  if File.exist?(filename + ".gem") and File.exist?(filename + ".tgz")
+    sh "rubyforge add_release timeoutx timeoutx #{TimeoutX::VERSION} #{filename}.gem"
+    sh "rubyforge add_file timeoutx timeoutx #{TimeoutX::VERSION} #{filename}.tgz"
+    puts "Released #{filename}.gem and #{filename}.tgz"
+  else
+    puts "Please make gem and tgz files first"
     exit
   end
 end
@@ -71,6 +65,16 @@ end
 desc "Create the gem package"
 task :gem do
   sh "gemify -I"
+end
+
+#
+# Create tgz
+#
+
+desc "Create the tgz package"
+task :tgz do
+  tgz = "timeoutx-#{TimeoutX::VERSION}.tgz"
+  sh "tar -T Manifest.txt -c -z -f #{tgz}"
 end
 
 #
